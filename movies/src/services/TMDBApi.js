@@ -9,11 +9,15 @@ const get = async(endpoint)=>{
 }
 
 export const getMovies =async(url)=>{
-  const response = await get(`${url}?api_key=${API_KEY}`)
+  const response = await get(`${url}?api_key=${API_KEY}&region=us`)
   return {
     ...response,
     results:response.data.results
   }
+}
+
+export const getPoster = async(url)=>{
+  
 }
 
 
