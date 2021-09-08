@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Navigation from "./pages/partials/Navigation";
 
 function App() {
+
   return (
     <>
 
