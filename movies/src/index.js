@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider} from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -14,6 +15,7 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <App />
+    <ReactQueryDevtools  initialIsOpen={false}/>
     </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,

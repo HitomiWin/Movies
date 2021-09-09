@@ -1,15 +1,18 @@
 import React from 'react'
-import MovieCardList from '../components/MovieCardList'
+import PopularMovies from '../components/PopularMovies'
+import PlayingMovies from '../components/PlayingMovies'
+import TopRatedMovies from '../components/TopRatedMovies'
 
 const Home = () => {
+
   return (
     <div>
-      <h1>You can watch now</h1>
-      <MovieCardList url={"/now_playing"}/>
-      <h1>Popular Movies</h1>
-      <MovieCardList url={"/popular"}/>
-      <h1>Top List</h1>
-      <MovieCardList url={"/top/rated"}/>
+      <h1>What's Popular</h1>
+      <PopularMovies />
+      <h1>Playing Movies</h1>
+      <PlayingMovies />     
+      <h1>Top 20 Movies</h1>
+      <TopRatedMovies />     
     </div>
   )
 }
