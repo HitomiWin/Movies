@@ -1,6 +1,15 @@
 body {
   margin: 0;
 }
+.App{
+  position: relative;
+}
+
+.loading-spinner{
+  position:absolute;
+  right:30px;
+  top:60px
+}
 
 
 
