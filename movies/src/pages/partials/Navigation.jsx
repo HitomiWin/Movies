@@ -1,11 +1,8 @@
 import React from "react";
 import { Link, NavLink,  } from "react-router-dom";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { useQuery } from "react-query";
-import { getGenre } from "../../services/TMDBApi";
 
 const Navigation = () => {
-  const { data } = useQuery("genre", getGenre);
 
   return (
     <Navbar bg="dark" variant="dark" expand="md" sticky="top">

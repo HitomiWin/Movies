@@ -1,11 +1,11 @@
 import React from 'react'
 import { useQuery } from 'react-query'
-import { getPlayingMovies } from '../services/TMDBApi'
+import { getCategorizedMovies } from '../services/TMDBApi'
 import MovieCardList from './MovieCardList'
 
-const PlayingMovies = () => {
+const CategorizedMovies = ({type}) => {
 
-  const { isLoading, isError, error, data } = useQuery('playing',()=>getPlayingMovies())
+  const { isLoading, isError, error, data } = useQuery(type,()=>getCategorizedMovies(type))
 
   if(isLoading) return <p>Loading...</p>
 
@@ -18,4 +18,4 @@ const PlayingMovies = () => {
   )
 }
 
-export default PlayingMovies
+export default CategorizedMovies

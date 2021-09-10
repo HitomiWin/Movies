@@ -7,7 +7,16 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions:{
+    queries:{
+      refetchOnWindowFocus:false, // Do not refetch when you go to another page 
+      staleTime:1000 * 10 // 10 seconds
+    }
+  }
+}
+
+)
 
 
 ReactDOM.render(

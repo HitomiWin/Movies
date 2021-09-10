@@ -1,18 +1,16 @@
 import React from 'react'
-import PopularMovies from '../components/PopularMovies'
-import PlayingMovies from '../components/PlayingMovies'
-import TopRatedMovies from '../components/TopRatedMovies'
+import CategorizedMovies from '../components/CategorizedMovies'
 
 const Home = () => {
 
   return (
     <div>
       <h1>What's Popular</h1>
-      <PopularMovies />
+      <CategorizedMovies type={"popular"} />
       <h1>Playing Movies</h1>
-      <PlayingMovies />     
+      <CategorizedMovies type={"now_playing"}/>   
       <h1>Top 20 Movies</h1>
-      <TopRatedMovies />     
+      <CategorizedMovies type={"top_rated"} />  
     </div>
   )
 }
