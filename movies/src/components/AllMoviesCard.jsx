@@ -9,7 +9,6 @@ const AllMoviesCard = () => {
   const [id, setId]=useState(16)
   const { data, isLoading, isError, error } = useQuery(["movies-genre",id, page], ()=>getMoviesByGenre(id, page));
 
- 
   if(isLoading) return <p>Loading...</p>
   if(isError) return <p>An error has ocdured: {error.message} </p>
 
