@@ -15,23 +15,6 @@ export const getCategorizedMovies = async (type) =>{
   return get(`/movie/${type}?api_key=${API_KEY}&region=us`)
 }
 
-export const getPopularMovies = async () => {
-  return get(`/movie/popular?api_key=${API_KEY}&region=us`)
-  
-}
-
-export const getPlayingMovies = async () => {
-  //get today
-  // const threeDaysLater = dayjs().add(3, 'day').format('YYYY-MM-DD')
-  // const response = await get(`?primary_release_date.lte=${threeDaysLater}&sort_by=primary_release_date.desc&api_key=${API_KEY}&region=us`)
-  return get(`/movie/now_playing?api_key=${API_KEY}&region=us`)
-  
-
-}
-export const getTopRatedMovies = async () => {
- return get(`/movie/top_rated?api_key=${API_KEY}&page=1&region=us`)
-}
-
 export const getGenre =async()=>{
   return get(`/genre/movie/list?api_key=${API_KEY}&region=us`)
 }
@@ -44,9 +27,6 @@ export const getMoviesByGenre = async(id=16, page=null)=>{
 // eslint-disable-next-line
 export default {
 getCategorizedMovies,
-getTopRatedMovies,
-getPlayingMovies,
-getPopularMovies,
 getGenre,
 getMoviesByGenre
 
