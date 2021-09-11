@@ -4,11 +4,13 @@ import MovieCard from "./MovieCard";
 import { useQuery } from "react-query";
 import { getMoviesByGenre } from "../services/TMDBApi";
 import PaginationButtons from "./PaginationButtons";
+import { useUrlSearchParams } from "use-url-search-params";
 
 const AllMoviesCard= () => {
-  const [page, setPage] = useState(1)
-  const [id, setId]=useState(16)
-  const { data, isLoading, isError, error, isPreviousData } = useQuery(["movies-genre",id, page], ()=>getMoviesByGenre(id, page),{
+  const[params, setParams]=useUrlSearchParams({page:1, id:16},{page:Number, id:Number})
+  const [page, setPage] = useState(params.page)
+  const [id, setId]=useState(params.id)
+  const { data, isLoading, isError, error, isPreviousData } = useQuery(["movies-genre",params], ()=>getMoviesByGenre(id, page),{
 
     staleTime: 1000 * 60 * 5, // 5 mins // stop to refetch unnecessarily
     cacheTime: 1000 * 60 * 30,
