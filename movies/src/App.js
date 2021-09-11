@@ -20,8 +20,8 @@ function App() {
         <Home />       
       </Route>
 
-      <Route>
-        <MovieDetailsPage path="/movies/:id" />
+      <Route path="/movies/:id">
+        <MovieDetailsPage  />
       </Route>
 
       <Route  path="/movies/genres">

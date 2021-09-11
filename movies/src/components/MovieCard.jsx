@@ -1,5 +1,5 @@
 import React from "react";
-import {useHistory, Link} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Col, Card } from "react-bootstrap";
 import useGetPoster from '../hooks/useGetPoster'
 
@@ -8,8 +8,7 @@ const MovieCard = ({ movie }) => {
   const posterUrl = useGetPoster(movie.poster_path);
   return (
     <>
-      {movie && (
-      
+      {movie && (      
         <Col xs={12} md={4} lg={2} onClick={()=>{history.push(`/movies/${movie.id}`)}}>
           <Card className={"my-3"}>
             <Card.Img variant="top" src={posterUrl} />
@@ -18,9 +17,7 @@ const MovieCard = ({ movie }) => {
               <Card.Text>Release date: {movie.release_date}</Card.Text>
             </Card.Body>
           </Card>
-          <Link to={`/movies/${movie.id}`}>Go</Link>
-        </Col>
-        
+        </Col>       
       )}
     </>
   );
