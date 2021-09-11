@@ -23,11 +23,15 @@ export const getMoviesByGenre = async({genreId, page})=>{
   return get(`/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&include_adult=false&page=${page}&with_genres=${genreId}&region=us`)
 }
 
+export const getMovieDetails = async(id)=>{
+return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
+}
 
 // eslint-disable-next-line
 export default {
 getCategorizedMovies,
 getGenre,
-getMoviesByGenre
+getMoviesByGenre,
+getMovieDetails,
 
 }

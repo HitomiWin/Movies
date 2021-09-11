@@ -4,6 +4,7 @@ import AllMoviesByGenre from './pages/AllMoviesByGenre';
 import Home from "./pages/Home";
 import Navigation from "./pages/partials/Navigation";
 import GenresContextProvider from './contexts/GenresContext';
+import MovieDetailsPage from './pages/MovieDetailsPage'
 
 function App() {
 
@@ -12,17 +13,23 @@ function App() {
     <Navigation/>
     <div id="App">
       <GlobalLoadingSpinner />
-    <Switch>
+
+      <Switch>
+
       <Route exact path="/">
         <Home />       
+      </Route>
+
+      <Route>
+        <MovieDetailsPage path="/movies/:id" />
       </Route>
 
       <Route  path="/movies/genres">
         <GenresContextProvider>
           <AllMoviesByGenre />
-        </GenresContextProvider>>
+        </GenresContextProvider>
       </Route>
-      
+
     </Switch>
     </div>
     </>

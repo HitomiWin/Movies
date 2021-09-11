@@ -22,10 +22,10 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-    <App />
-    <ReactQueryDevtools  initialIsOpen={false}/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+        <ReactQueryDevtools  initialIsOpen={false}/>
+      </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
