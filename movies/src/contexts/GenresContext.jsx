@@ -11,7 +11,7 @@ const GenresContextProvider = ({children}) => {
   const [genreId, setGenreId] = useState(null)
   const [genreName, setGenreName]= useState("")
   
-
+console.log("this is contex")
   const getGenreId=(id)=>{
     setGenreId(id)
   }

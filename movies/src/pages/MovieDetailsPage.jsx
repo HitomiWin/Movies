@@ -1,11 +1,12 @@
 import React from "react";
+import ActorCardList from "../components/ActorCardList"
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getMovieDetails } from "../services/TMDBApi";
-import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 
-const MovieDetailsPage = () => {
+const MovieDetailsPage =() => {
   const { id } = useParams();
 
   const { data, isLoading, isError, error } = useQuery(
@@ -26,7 +27,7 @@ const MovieDetailsPage = () => {
       <Container>
         <Card className={"mt-3 border-0"}>
           <Row>
-            <Col sm={12} md={6} lg={3} className={"my-auto"}>
+            <Col sm={12} md={6} lg={3} >
               <Card.Img src={posterUrl} />
             </Col>
 
@@ -38,20 +39,12 @@ const MovieDetailsPage = () => {
               <Card.Text>
                 {data.genres.map((genre) => genre.name).join(" ")}
               </Card.Text>
-
-              <Accordion defaultActiveKey="0" className={"border-0"}>
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>Overview</Accordion.Header>
-                  <Accordion.Body>{data.overview}</Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
+              <Card.Title>Overview</Card.Title>
+              <Card.Text>{data.overview}</Card.Text>
             </Col>
           </Row>
         </Card>
-        <Card className={"mt-3 border-0"}>
-          <Card.Title>Cast</Card.Title>
-          <Card></Card>
-        </Card>
+       <ActorCardList />
       </Container>
     )
   );

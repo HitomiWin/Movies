@@ -6,6 +6,7 @@ import { getMoviesByGenre } from "../services/TMDBApi";
 import PaginationButtons from "./PaginationButtons";
 import { useUrlSearchParams } from "use-url-search-params";
 import { useGenresContext } from "../contexts/GenresContext";
+
 const AllMoviesCard = ({title}) => {
   const [params, setParams] = useUrlSearchParams(
     { genreId:28, page: 1 },
