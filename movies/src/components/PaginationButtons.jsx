@@ -9,10 +9,10 @@ const PaginationButtons = ({ totalPages, isPreviousData, page, setPage }) => {
         disabled={page === 1}
         variant="dark"
       >
-        Previous Page
+        Prev
       </Button>
 
-      <p>Current page: {page}</p>
+      <h5>Current page: {page}</h5>
 
       <Button
         onClick={() => {
@@ -22,7 +22,7 @@ const PaginationButtons = ({ totalPages, isPreviousData, page, setPage }) => {
         disabled={isPreviousData || page === totalPages}
         variant="dark"
       >
-        Next Page
+        Next
       </Button>
     </div>
   );

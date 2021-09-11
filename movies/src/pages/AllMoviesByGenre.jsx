@@ -3,7 +3,6 @@ import GenresButtons from "../components/GenresButtons";
 import AllMoviesCard from "../components/AllMoviesCard";
 
 const AllMoviesByGenre = () => {
-  
 
   return (
     <Container className="mt-2">
@@ -13,8 +12,7 @@ const AllMoviesByGenre = () => {
           <GenresButtons  />
         </Col>
         <Col md="auto">
-          <h1>Genre:</h1>
-         <AllMoviesCard  />
+         <AllMoviesCard title={"Genre:"} />
         </Col>
       </Row>
     </Container>

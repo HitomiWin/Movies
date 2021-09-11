@@ -6,12 +6,13 @@ import { getMoviesByGenre } from "../services/TMDBApi";
 import PaginationButtons from "./PaginationButtons";
 import { useUrlSearchParams } from "use-url-search-params";
 import { useGenresContext } from "../contexts/GenresContext";
-const AllMoviesCard = () => {
+const AllMoviesCard = ({title}) => {
   const [params, setParams] = useUrlSearchParams(
-    { genreId: 28, page: 1 },
+    { genreId:28, page: 1 },
     { genreId: Number, page: Number }
   );
-  const{ genreId } =useGenresContext(params.genreId)// id is genres id
+  const{ genreId } =useGenresContext(params.genreId)
+  const{ genreName } =useGenresContext()
   const [page, setPage] = useState(params.page);
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
     ["movies-genre", params],
@@ -22,7 +23,7 @@ const AllMoviesCard = () => {
       keepPreviousData: true,
     }
   );
-    console.log(params)
+
   useEffect(() => {
     setParams({ ...params, genreId, page });
 
@@ -32,8 +33,9 @@ const AllMoviesCard = () => {
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>An error has ocdured: {error.message} </p>;
 
-  return (
+  return  (
     <Container>
+      <h1>{title} {genreName}</h1>
       <Row>
         {data?.results &&
           data.results.map((movie, i) => <MovieCard key={i} movie={movie} />)}
