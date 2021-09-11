@@ -5,11 +5,11 @@ const API_KEY = process.env.REACT_APP_API_KEY
 axios.defaults.baseURL = `https://api.themoviedb.org/3`
 
 
-
 const get = async (endpoint) => {
   const response = await axios.get(endpoint)
   return response.data
 }
+
 
 export const getCategorizedMovies = async (type) =>{
   return get(`/movie/${type}?api_key=${API_KEY}&region=us`)

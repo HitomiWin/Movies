@@ -11,7 +11,7 @@ const queryClient = new QueryClient({
   defaultOptions:{
     queries:{
       refetchOnWindowFocus:false, // Do not refetch when you go to another page 
-      staleTime:1000 * 10 // 10 seconds
+      staleTime:1000 * 10 // 10 seconds //Global stateTime
     }
   }
 }
