@@ -26,29 +26,29 @@ const MovieDetailsPage = () => {
       <Container>
         <Card className={"mt-3 border-0"}>
           <Row>
-            <Col sm={12}>
-              <Card.Img variant="top" src={posterUrl} />
+            <Col sm={12} md={6} lg={3} className={"my-auto"}>
+              <Card.Img src={posterUrl} />
             </Col>
-            <Col>
-              <Card.Body>
-                <Card.Title>{data.original_title}</Card.Title>
-                <Card.Text>
-                  Release: {data.release_date} / {data.runtime} mins
-                </Card.Text>
-                <Card.Text>
-                  {data.genres.map((genre) => genre.name).join(" ")}
-                </Card.Text>
-                <Accordion defaultActiveKey="0" className={"border-0"}>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>Overview</Accordion.Header>
-                    <Accordion.Body>{data.overview}</Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </Card.Body>
+
+            <Col sm={12} md={6} lg={9} >
+              <Card.Title className={"mt-2"}>{data.original_title}</Card.Title>
+              <Card.Text>
+                Release: {data.release_date} / {data.runtime} mins
+              </Card.Text>
+              <Card.Text>
+                {data.genres.map((genre) => genre.name).join(" ")}
+              </Card.Text>
+
+              <Accordion defaultActiveKey="0" className={"border-0"}>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Overview</Accordion.Header>
+                  <Accordion.Body>{data.overview}</Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </Col>
           </Row>
         </Card>
-        <Card className={"border-0"}>
+        <Card className={"mt-3 border-0"}>
           <Card.Title>Cast</Card.Title>
           <Card></Card>
         </Card>
