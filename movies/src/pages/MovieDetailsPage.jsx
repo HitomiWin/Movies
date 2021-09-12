@@ -10,13 +10,7 @@ const MovieDetailsPage =() => {
   const { id } = useParams();
 
   const { data, isLoading, isError, error } = useQuery(
-    ["movie", id],
-    () => getMovieDetails(id),
-    {
-      staleTime: 1000 * 60 * 5, // 5 mins // stop to refetch unnecessarily
-      cacheTime: 1000 * 60 * 30,
-    }
-  );
+    ["movie", id],() => getMovieDetails(id));
   const posterUrl = useGetPoster(data ? data.poster_path : null);
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>An error has ocdured: {error.message} </p>;

@@ -24,7 +24,7 @@ export const getMoviesByGenre = async({genreId, page})=>{
 }
 
 export const getMovieDetails = async(id)=>{
-return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
+  return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
 
 // eslint-disable-next-line

@@ -1,15 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useQuery } from "react-query";
-import { getGenre } from "../services/TMDBApi";
+
 import {useGenresContext} from "../contexts/GenresContext"
 
 const GenresButtons = () => {
-  const { getGenreId, getGenreName }= useGenresContext()
-  const { data, isLoading, isError, error } = useQuery("genre",()=>getGenre(), {
-    staleTime: 1000 * 60 * 5, // 5 mins // stop to refetch unnecessarily
-    cacheTime: 1000 * 60 * 30, // 30 mins
-  });
+  const { getGenreId, getGenreName, data,
+    isLoading,
+    isError,
+    error, }= useGenresContext()
+ 
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -17,7 +16,6 @@ const GenresButtons = () => {
   const handleOnClick=(id, name)=>{
     getGenreId(id)
     getGenreName(name)
-
   }
   return (
     <>

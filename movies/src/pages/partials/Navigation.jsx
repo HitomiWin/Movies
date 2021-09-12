@@ -20,7 +20,7 @@ const Navigation = () => {
               </NavLink>
             </Nav.Item>
             <NavDropdown title="Movies" id="nav-dropdown">        
-                <NavLink to="/movies/genres" className="dropdown-item">Genres</NavLink>           
+                <NavLink to={`/movies/genres`} className="dropdown-item">Genres</NavLink>           
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

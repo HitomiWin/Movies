@@ -8,26 +8,23 @@ import { useUrlSearchParams } from "use-url-search-params";
 import { useGenresContext } from "../contexts/GenresContext";
 
 const AllMoviesCard = ({title}) => {
+
   const [params, setParams] = useUrlSearchParams(
-    { genreId:null, page: 1 },
-    { genreId: Number, page: Number }
-  );
-  const{ genreId } =useGenresContext(params.genreId)
-  const{ genreName } =useGenresContext('')
+    { genreId: null, page: 1 },
+    {  id:Number, page: Number }
+    );
+    const{ genreId, genreName } =useGenresContext()
   const [page, setPage] = useState(params.page);
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
     ["movies-genre", params],
     () => getMoviesByGenre(params),
     {
-      staleTime: 1000 * 60 * 5, // 5 mins // stop to refetch unnecessarily
-      cacheTime: 1000 * 60 * 30,
       keepPreviousData: true,
     }
   );
 
   useEffect(() => {
     setParams({ ...params, genreId, page });
-
     // eslint-disable-next-line
   }, [genreId, page]);
 
