@@ -10,6 +10,11 @@ body {
   right:30px;
   top:60px
 }
-
+.movie-card-wrapper{
+  height:450px
+}
+.movie-card{
+  height:100%
+}
 
 

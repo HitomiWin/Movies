@@ -10,8 +10,8 @@ const MovieCard = ({ movie }) => {
   return (
     <>
       {movie && (      
-        <Col xs={12} md={4} lg={2} onClick={()=>{history.push(`/movie/${movie.id}`)}}>
-          <Card className={"my-3"}>
+        <Col xs={6} md={3} lg={2} onClick={()=>{history.push(`/movie/${movie.id}`)}}  className={"my-3 movie-card-wrapper"}>
+          <Card className="movie-card">
             <Card.Img variant="top" src={posterUrl} />
             <Card.Body className={"d-flex flex-column justify-content-between"}>
               <Card.Title>{movie.title}</Card.Title>

@@ -18,7 +18,6 @@ const MovieDetailsPage =() => {
     }
   );
   const posterUrl = useGetPoster(data ? data.poster_path : null);
-  console.log(error);
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>An error has ocdured: {error.message} </p>;
 

@@ -9,11 +9,11 @@ import { useGenresContext } from "../contexts/GenresContext";
 
 const AllMoviesCard = ({title}) => {
   const [params, setParams] = useUrlSearchParams(
-    { genreId:28, page: 1 },
+    { genreId:null, page: 1 },
     { genreId: Number, page: Number }
   );
   const{ genreId } =useGenresContext(params.genreId)
-  const{ genreName } =useGenresContext()
+  const{ genreName } =useGenresContext('')
   const [page, setPage] = useState(params.page);
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
     ["movies-genre", params],
