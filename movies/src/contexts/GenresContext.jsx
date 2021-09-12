@@ -19,6 +19,7 @@ const GenresContextProvider = ({ children }) => {
   );
   const [genreId, setGenreId] = useState(null);
   const [genreName, setGenreName] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if(data)
@@ -34,12 +35,17 @@ const GenresContextProvider = ({ children }) => {
   const getGenreName = (name) => {
     setGenreName(name);
   };
+  const getPage =(page) =>{
+    setPage(page)
+  }
 
   const values = {
     genreId,
     getGenreId,
     genreName,
     getGenreName,
+    page,
+    getPage,
     data,
     isLoading,
     isError,

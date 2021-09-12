@@ -23,7 +23,7 @@ function App() {
         <MovieDetailsPage  />
       </Route>
 
-      <Route path="/movies/genres">
+      <Route  path="/movies/genres/:id">
         
           <AllMoviesByGenre />
       
