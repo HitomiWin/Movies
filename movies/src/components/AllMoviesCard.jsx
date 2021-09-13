@@ -14,7 +14,7 @@ const AllMoviesCard = ({title}) => {
     { page: 1 },
     { page: Number }
     );
-    const{ page, genreName } =useGenresContext()
+    const{ page, genreName } =useGenresContext() 
 
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
     ["movies-genre", id,params.page],
