@@ -23,10 +23,12 @@ function App() {
         <MovieDetailsPage  />
       </Route>
 
-      <Route  path="/movies/genres/:id">
-        
-          <AllMoviesByGenre />
-      
+      <Route  path="/movies/genres/:id">    
+          <AllMoviesByGenre />   
+      </Route>
+
+      <Route  path="/person/:id">    
+          <AllMoviesByGenre />   
       </Route>
 
     </Switch>

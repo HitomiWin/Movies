@@ -10,11 +10,15 @@ body {
   right:30px;
   top:60px
 }
-.movie-card-wrapper{
+.movie-card-wrapper, .actor-card-wrapper{
   height:450px
 }
-.movie-card{
+.movie-card, .actor-card{
   height:100%
+}
+
+.image {
+  text-align: center;
 }
 
 

@@ -10,7 +10,6 @@ const get = async (endpoint) => {
   return response.data
 }
 
-
 export const getCategorizedMovies = async (type) =>{
   return get(`/movie/${type}?api_key=${API_KEY}&region=us`)
 }
@@ -26,6 +25,7 @@ export const getMoviesByGenre = async(genreId, page)=>{
 export const getMovieDetails = async(id)=>{
   return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
+
 
 // eslint-disable-next-line
 export default {
