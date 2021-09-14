@@ -35,7 +35,7 @@ export const getMoviesByPerson = async (person_id) => {
 }
 
 export const getRelatedMovies = async (genre, year) =>{
-  return get(`/discover/movie?with_genres=${genre}&release_year=${year}&api_key=${API_KEY}&include_adult=false`)
+  return get(`/discover/movie?with_genres=${genre}&primary_release_year=${year}&api_key=${API_KEY}&include_adult=false`)
 }
 
 

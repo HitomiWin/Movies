@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import { Spinner } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import MovieCardList from "../components/MovieCardList";
+import MovieCardList from "./MovieCardList";
 import { getRelatedMovies } from "../services/TMDBApi";
 
 const RelatedMovies = ({ genre, year }) => {

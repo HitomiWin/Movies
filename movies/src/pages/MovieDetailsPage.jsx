@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { getMovieDetails } from "../services/TMDBApi";
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
-import RelatedMovies from "./RelatedMovies";
+import RelatedMovies from "../components/RelatedMovies";
 
 const MovieDetailsPage = () => {
   const { movie_id } = useParams();
