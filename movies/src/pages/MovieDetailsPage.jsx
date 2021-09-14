@@ -1,30 +1,35 @@
 import React from "react";
-import PersonCardList from "../components/PersonCardList"
+import PersonCardList from "../components/PersonCardList";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getMovieDetails } from "../services/TMDBApi";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 
-const MovieDetailsPage =() => {
+const MovieDetailsPage = () => {
   const { movie_id } = useParams();
   const { data, isLoading, isError, error } = useQuery(
-    ["movie", movie_id],() => getMovieDetails(movie_id));
+    ["movie", movie_id],
+    () => getMovieDetails(movie_id)
+  );
 
   const posterUrl = useGetPoster(data?.poster_path);
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>An error has ocdured: {error.message} </p>;
+  if (isLoading)
+    return (
+        <Spinner animation="border" size="sm" />
+    );
+  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
 
   return (
     data && (
       <Container>
         <Card className={"mt-3 border-0"}>
           <Row>
-            <Col sm={12} md={6} lg={3} >
+            <Col sm={12} md={6} lg={3}>
               <Card.Img src={posterUrl} />
             </Col>
 
-            <Col sm={12} md={6} lg={9} >
+            <Col sm={12} md={6} lg={9}>
               <Card.Title className={"mt-2"}>{data.original_title}</Card.Title>
               <Card.Text>
                 Release: {data.release_date} / {data.runtime} mins
@@ -37,7 +42,7 @@ const MovieDetailsPage =() => {
             </Col>
           </Row>
         </Card>
-       <PersonCardList cast={data.credits.cast} />
+        <PersonCardList cast={data.credits.cast} />
       </Container>
     )
   );

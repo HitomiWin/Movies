@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import MovieCard from "./MovieCard";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -26,8 +26,11 @@ const AllMoviesCard = ({ title }) => {
     // eslint-disable-next-line
   }, [genre_id, page]);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>An error has ocdured: {error.message} </p>;
+  if (isLoading)
+    return (
+        <Spinner animation="border" size="sm" />
+    );
+  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
 
   return (
     <>

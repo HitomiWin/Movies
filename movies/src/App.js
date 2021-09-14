@@ -11,12 +11,11 @@ function App() {
 
   return (
     <>
-    <Navigation/>
     <div id="App">
+      <Navigation/>
       <GlobalLoadingSpinner />
 
       <Switch>
-
       <Route exact path="/">
         <Home />       
       </Route>
@@ -26,11 +25,11 @@ function App() {
       </Route>
 
       <Route  path="/movies/genres/:genre_id">    
-          <AllMoviesByGenre />   
+        <AllMoviesByGenre />   
       </Route>
 
       <Route  path="/person/:person_id">    
-          <PersonPage /> 
+        <PersonPage /> 
       </Route>
 
       <Route>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useHistory } from "react-router";
 
 import { useGenresContext } from "../contexts/GenresContext";
@@ -9,10 +9,13 @@ const GenresButtons = () => {
   const { getPage, getGenreName, data, isLoading, isError, error } =
     useGenresContext();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return (
+        <Spinner animation="border" size="sm" />
+    );
 
-  if (isError) return <p>An error has ocdured: {error.message} </p>;
-  
+  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
+
   const handleOnClick = (id, name) => {
     getPage(1);
     getGenreName(name);
