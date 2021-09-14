@@ -4,6 +4,8 @@ import AllMoviesByGenre from './pages/AllMoviesByGenre';
 import Home from "./pages/Home";
 import Navigation from "./pages/partials/Navigation";
 import MovieDetailsPage from './pages/MovieDetailsPage'
+import PersonPage from './pages/PersonPage'
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
 
@@ -19,16 +21,20 @@ function App() {
         <Home />       
       </Route>
 
-      <Route path="/movie/:id">
+      <Route path="/movie/:movie_id">
         <MovieDetailsPage  />
       </Route>
 
-      <Route  path="/movies/genres/:id">    
+      <Route  path="/movies/genres/:genre_id">    
           <AllMoviesByGenre />   
       </Route>
 
-      <Route  path="/person/:id">    
-          <AllMoviesByGenre />   
+      <Route  path="/person/:person_id">    
+          <PersonPage /> 
+      </Route>
+
+      <Route>
+        <NotFoundPage />
       </Route>
 
     </Switch>

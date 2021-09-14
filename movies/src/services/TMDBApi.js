@@ -11,19 +11,27 @@ const get = async (endpoint) => {
 }
 
 export const getCategorizedMovies = async (type) =>{
-  return get(`/movie/${type}?api_key=${API_KEY}&region=us`)
+  return get(`/movie/${type}?api_key=${API_KEY}&region=us&language=en-US`)
 }
 
 export const getGenre =async()=>{
-  return get(`/genre/movie/list?api_key=${API_KEY}&region=us`)
+  return get(`/genre/movie/list?api_key=${API_KEY}&region=us&language=en-US`)
 }
 
-export const getMoviesByGenre = async(genreId, page)=>{
-  return get(`/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&include_adult=false&page=${page}&with_genres=${genreId}&region=us`)
+export const getMoviesByGenre = async(genreId, page=1)=>{
+  return get(`/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&include_adult=false&page=${page}&with_genres=${genreId}&language=en-US&region=us`)
 }
 
 export const getMovieDetails = async(id)=>{
   return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
+}
+
+export const getPerson = async(person_id)=>{
+  return get(`/person/${person_id}?api_key=${API_KEY}&language=en-US`)
+}
+
+export const getMoviesByPerson = async(person_id)=>{
+  return get(`/discover/movie?api_key=${API_KEY}&language=en-US&include_adult=false&with_people=${person_id}`)
 }
 
 
@@ -33,5 +41,6 @@ getCategorizedMovies,
 getGenre,
 getMoviesByGenre,
 getMovieDetails,
-
+getPerson,
+getMoviesByPerson
 }

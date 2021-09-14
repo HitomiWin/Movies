@@ -1,5 +1,5 @@
 import React from "react";
-import ActorCardList from "../components/PersonCardList"
+import PersonCardList from "../components/PersonCardList"
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getMovieDetails } from "../services/TMDBApi";
@@ -7,12 +7,11 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 
 const MovieDetailsPage =() => {
-  const { id } = useParams();
-
+  const { movie_id } = useParams();
   const { data, isLoading, isError, error } = useQuery(
-    ["movie", id],() => getMovieDetails(id));
+    ["movie", movie_id],() => getMovieDetails(movie_id));
 
-  const posterUrl = useGetPoster(data ? data.poster_path : null);
+  const posterUrl = useGetPoster(data?.poster_path);
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>An error has ocdured: {error.message} </p>;
 
@@ -38,7 +37,7 @@ const MovieDetailsPage =() => {
             </Col>
           </Row>
         </Card>
-       <ActorCardList cast={data.credits.cast} />
+       <PersonCardList cast={data.credits.cast} />
       </Container>
     )
   );
