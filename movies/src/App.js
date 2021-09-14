@@ -6,6 +6,7 @@ import Navigation from "./pages/partials/Navigation";
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import PersonPage from './pages/PersonPage'
 import NotFoundPage from './pages/NotFoundPage';
+import AllMoviesBySearch from './pages/AllMoviesBySearch';
 
 function App() {
 
@@ -30,6 +31,10 @@ function App() {
 
       <Route  path="/person/:person_id">    
         <PersonPage /> 
+      </Route>
+
+      <Route  path="/movies/search">    
+        <AllMoviesBySearch /> 
       </Route>
 
       <Route>
