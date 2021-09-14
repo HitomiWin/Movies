@@ -2,9 +2,10 @@ import React, { memo } from "react";
 import { Button } from "react-bootstrap";
 import { useGenresContext } from "../contexts/GenresContext";
 
-const PaginationButtons = memo( // stop to rerender unnecessary
-  ({ totalPages, isPreviousData  }) => {
-    const { page, getPage} = useGenresContext()
+const PaginationButtons = memo(
+  // stop to rerender unnecessary
+  ({ totalPages, isPreviousData }) => {
+    const { page, getPage } = useGenresContext();
     return (
       <div className="d-flex justify-content-between align-items-center my-3">
         <Button
@@ -15,7 +16,7 @@ const PaginationButtons = memo( // stop to rerender unnecessary
           Prev
         </Button>
 
-        <h5>Current page: {page}</h5>
+        <h5>Current Page: {page}</h5>
 
         <Button
           onClick={() => {

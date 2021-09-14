@@ -9,12 +9,12 @@ const CategorizedMovies = ({ type, title }) => {
     getCategorizedMovies(type)
   );
 
-  if (isLoading)
-    return (
-        <Spinner animation="border" size="sm" />
-    );
+  if (isLoading) return <Spinner animation="border" size="sm" />;
 
-  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
+  if (isError)
+    return (
+      <p className="text-center">An error has ocdured: {error.message} </p>
+    );
 
   return (
     <div className="py-3">

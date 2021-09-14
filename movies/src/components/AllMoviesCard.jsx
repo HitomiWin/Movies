@@ -26,11 +26,11 @@ const AllMoviesCard = ({ title }) => {
     // eslint-disable-next-line
   }, [genre_id, page]);
 
-  if (isLoading)
+  if (isLoading) return <Spinner animation="border" size="sm" />;
+  if (isError)
     return (
-        <Spinner animation="border" size="sm" />
+      <p className="text-center">An error has ocdured: {error.message} </p>
     );
-  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
 
   return (
     <>

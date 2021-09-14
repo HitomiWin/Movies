@@ -9,12 +9,12 @@ const GenresButtons = () => {
   const { getPage, getGenreName, data, isLoading, isError, error } =
     useGenresContext();
 
-  if (isLoading)
-    return (
-        <Spinner animation="border" size="sm" />
-    );
+  if (isLoading) return <Spinner animation="border" size="sm" />;
 
-  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
+  if (isError)
+    return (
+      <p className="text-center">An error has ocdured: {error.message} </p>
+    );
 
   const handleOnClick = (id, name) => {
     getPage(1);

@@ -12,11 +12,11 @@ const MoviesByPerson = () => {
     () => getMoviesByPerson(person_id)
   );
 
-  if (isError) return <p className="text-center">An error has ocdured: {error.message} </p>;
-  if (isLoading)
+  if (isError)
     return (
-        <Spinner animation="border" size="sm" />
+      <p className="text-center">An error has ocdured: {error.message} </p>
     );
+  if (isLoading) return <Spinner animation="border" size="sm" />;
 
   return (
     <>

@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, NavLink,  } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import {useGenresContext} from "../../contexts/GenresContext"
+import { useGenresContext } from "../../contexts/GenresContext";
 
 const Navigation = () => {
-  const {genreId}=useGenresContext()
+  const { genreId } = useGenresContext();
 
   return (
     <Navbar bg="dark" variant="dark" expand="md" sticky="top">
@@ -21,8 +21,13 @@ const Navigation = () => {
                 Home
               </NavLink>
             </Nav.Item>
-            <NavDropdown title="Movies" id="nav-dropdown">        
-                <NavLink to={`/movies/genres/${genreId}`} className="dropdown-item">Genres</NavLink>           
+            <NavDropdown title="Movies" id="nav-dropdown">
+              <NavLink
+                to={`/movies/genres/${genreId}`}
+                className="dropdown-item"
+              >
+                Genres
+              </NavLink>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
