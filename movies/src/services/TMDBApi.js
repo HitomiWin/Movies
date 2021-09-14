@@ -34,6 +34,10 @@ export const getMoviesByPerson = async (person_id) => {
   return get(`/discover/movie?api_key=${API_KEY}&language=en-US&include_adult=false&with_people=${person_id}`)
 }
 
+export const getRelatedMovies = async (genre, year) =>{
+  return get(`/discover/movie?with_genres=${genre}&release_year=${year}&api_key=${API_KEY}&include_adult=false`)
+}
+
 
 // eslint-disable-next-line
 export default {
@@ -42,5 +46,6 @@ export default {
   getMoviesByGenre,
   getMovieDetails,
   getPerson,
-  getMoviesByPerson
+  getMoviesByPerson,
+  getRelatedMovies
 }

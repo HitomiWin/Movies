@@ -6,8 +6,8 @@ const MovieCardList = ({ data }) => {
   return (
     <>
       <Row className="moviecard-list  flex-nowrap overflow-scroll">
-        {data &&
-          data.results.map((result, i) => <MovieCard key={i} movie={result} />)}
+      {data?.results?.map((result, i) => <MovieCard key={i} movie={result} />)}
+        
       </Row>
     </>
   );

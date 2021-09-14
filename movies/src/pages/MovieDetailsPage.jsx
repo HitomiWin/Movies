@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import { getMovieDetails } from "../services/TMDBApi";
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
+import RelatedMovies from "./RelatedMovies";
 
 const MovieDetailsPage = () => {
   const { movie_id } = useParams();
@@ -14,7 +15,7 @@ const MovieDetailsPage = () => {
   );
 
   const posterUrl = useGetPoster(data?.poster_path);
-  if (isLoading) return <Spinner animation="border" size="sm" />;
+  if (isLoading) return <Spinner  className="text-center" animation="border" size="sm" />;
   if (isError)
     return (
       <p className="text-center">An error has ocdured: {error.message} </p>
@@ -43,6 +44,7 @@ const MovieDetailsPage = () => {
           </Row>
         </Card>
         <PersonCardList cast={data.credits.cast} />
+        <RelatedMovies genre={data.genres[0].id} year={data.release_date}/>
       </Container>
     )
   );

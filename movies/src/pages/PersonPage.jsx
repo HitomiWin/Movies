@@ -38,7 +38,7 @@ const PersonPage = () => {
               <h5>Place of birth</h5>
               <p>{data.place_of_birth ?? "-"}</p>
               <h5>Also known as</h5>
-              <p>{data.also_known_as ?? "-"}</p>
+              <p>{data.also_known_as.join(" / ") ?? "-"}</p>
             </Col>
             <Col sm={12} md={12} lg={6}>
               <h5>Biography</h5>
