@@ -13,7 +13,7 @@ import { useQuery } from "react-query";
 import { getMoviesBySearch } from "../services/TMDBApi";
 import { useUrlSearchParams } from "use-url-search-params";
 import { Search } from "react-bootstrap-icons";
-import AllMoviesCard from "../components/AllMoviesCard";
+import AllMoviesCardList from "../components/AllMoviesCardList";
 
 const AllMoviesBySearch = () => {
   const [searchParams, setSearchParams] = useUrlSearchParams(
@@ -43,6 +43,7 @@ const AllMoviesBySearch = () => {
 
   const handleSearchReset = (e) => {
     e.preventDefault();
+    setFormQuery("");
     setQuery("");
   };
 
@@ -51,6 +52,8 @@ const AllMoviesBySearch = () => {
     return (
       <p className="text-center">An error has ocdured: {error.message} </p>
     );
+
+  console.log(data);
   return (
     <Container className="mt-3">
       <Row className="justify-content-center">
@@ -80,9 +83,22 @@ const AllMoviesBySearch = () => {
           </Form>
         </Col>
       </Row>
-    {data &&
-      <AllMoviesCard data={data} isPreviousData={isPreviousData} />
-    }
+      {query && (
+        <Col>
+          {data?.results.length ? (
+            <AllMoviesCardList
+              data={data}
+              isPreviousData={isPreviousData}
+              page={page}
+              setPage={setPage}
+            />
+          ) : (
+            <h4 className="mt-5 text-center">
+              We did not find anything for your search "{query}"{" "}
+            </h4>
+          )}
+        </Col>
+      )}
     </Container>
   );
 };

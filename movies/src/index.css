@@ -11,7 +11,7 @@ body {
   top: 60px;
 }
 .movie-card-wrapper {
-  height: 400px;
+  height: 460px;
 }
 .person-card-wrapper {
   height: 380px;
@@ -30,15 +30,4 @@ body {
 
  .search-icon :hover{
   color: gray;
-}
-
-@media only screen and (min-width: 768px) {
-  .movie-card-wrapper {
-    height: 420px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .movie-card-wrapper {
-    height: 450px;
-  }
 }

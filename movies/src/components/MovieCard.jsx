@@ -19,7 +19,7 @@ const MovieCard = ({ movie }) => {
           className={"my-3 movie-card-wrapper"}
         >
           <Card className="movie-card">
-            <Card.Img variant="top" src={posterUrl} alt="no image"/>
+            <Card.Img variant="top" src={posterUrl} alt="no image"  height="250" className="image"/>
             <Card.Body className={"d-flex flex-column justify-content-between"}>
               <Card.Title>{movie.title}</Card.Title>
               <Card.Text>Release date: {movie.release_date}</Card.Text>

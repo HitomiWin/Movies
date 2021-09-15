@@ -27,7 +27,8 @@ const MovieDetailsPage = () => {
         <Card className={"mt-3 border-0"}>
           <Row>
             <Col sm={12} md={6} lg={3}>
-              <Card.Img src={posterUrl} />
+              <Card.Img src={posterUrl} className="image"
+               alt="No image" />
             </Col>
 
             <Col sm={12} md={6} lg={9}>

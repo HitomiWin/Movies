@@ -2,8 +2,7 @@ import { Container, Row } from "react-bootstrap";
 import MovieCard from "./MovieCard";
 import PaginationButtons from "./PaginationButtons";
 
-const AllMoviesCard = ({ data, isPreviousData, page, setPage }) => {
- 
+const AllMoviesCardList = ({ data, isPreviousData, page, setPage }) => {
   return (
     <>
       <Container className="px-0">
@@ -22,4 +21,4 @@ const AllMoviesCard = ({ data, isPreviousData, page, setPage }) => {
   );
 };
 
-export default AllMoviesCard;
+export default AllMoviesCardList;
