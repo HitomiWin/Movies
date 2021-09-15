@@ -32,7 +32,7 @@ const MovieDetailsPage = () => {
             </Col>
 
             <Col sm={12} md={6} lg={9}>
-              <Card.Title className={"mt-2"}>{data.original_title}</Card.Title>
+              <h1>{data.original_title}</h1>
               <Card.Text>
                 Release: {data.release_date} / {data.runtime} mins
               </Card.Text>

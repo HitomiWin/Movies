@@ -3,7 +3,8 @@ import { Button } from "react-bootstrap";
 
 const PaginationButtons = memo(
   // stop to rerender unnecessary
-  ({ totalPages, isPreviousData, page, setPage }) => {
+  ({ totalPages, isPreviousData, page, setPage, paramsPage }) => {
+
     return (
       <div className="d-flex justify-content-between align-items-center my-3">
         <Button
@@ -14,7 +15,7 @@ const PaginationButtons = memo(
           Prev
         </Button>
 
-        <h5>Current Page: {page}</h5>
+        <h5>Current Page: {paramsPage}</h5>
 
         <Button
           onClick={() => {

@@ -17,10 +17,10 @@ import AllMoviesCardList from "../components/AllMoviesCardList";
 
 const AllMoviesBySearch = () => {
   const [searchParams, setSearchParams] = useUrlSearchParams(
-    { query: "", page: 1 },
+    { query: null, page: null },
     { page: Number }
   );
-  const [page, setPage] = useState(searchParams.page);
+  const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [formQuery, setFormQuery] = useState("");
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
@@ -83,7 +83,7 @@ const AllMoviesBySearch = () => {
           </Form>
         </Col>
       </Row>
-      {query && (
+      {searchParams.query && (
         <Col>
           {data?.results.length ? (
             <AllMoviesCardList
@@ -94,7 +94,7 @@ const AllMoviesBySearch = () => {
             />
           ) : (
             <h4 className="mt-5 text-center">
-              We did not find anything for your search "{query}"{" "}
+              We did not find anything for your search "{searchParams.query}"
             </h4>
           )}
         </Col>

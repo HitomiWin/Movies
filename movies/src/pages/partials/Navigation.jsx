@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useGenresContext } from "../../contexts/GenresContext";
-import { Search } from 'react-bootstrap-icons'
+import { Search } from "react-bootstrap-icons";
 
 const Navigation = () => {
   const { genreId } = useGenresContext();
@@ -22,19 +22,16 @@ const Navigation = () => {
                 Home
               </NavLink>
             </Nav.Item>
-            <NavDropdown title="Movies" id="nav-dropdown">
-              <NavLink
-                to={`/movies/genres/${genreId}`}
-                className="dropdown-item"
-              >
-                Genres
-              </NavLink>
-            </NavDropdown>
+            <Nav.Item>
+            <NavLink to={`/movies/genres/${genreId}`}  className="nav-link">
+              Genres
+            </NavLink>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
-        <Nav >
-          <NavLink to={"/movies/search"}  className="search-icon" >
-            <Search size={22}  className="search-icon" />
+        <Nav>
+          <NavLink to={"/movies/search"} className="search-icon">
+            <Search size={22} className="search-icon" />
           </NavLink>
         </Nav>
       </Container>

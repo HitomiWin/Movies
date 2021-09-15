@@ -36,7 +36,7 @@ function App() {
       <Route  path="/movies/search">    
         <AllMoviesBySearch /> 
       </Route>
-
+      
       <Route>
         <NotFoundPage />
       </Route>

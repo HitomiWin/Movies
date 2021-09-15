@@ -39,10 +39,13 @@ export const getRelatedMovies = async (genre, year) =>{
 }
 
 export const getMoviesBySearch = async ({query=null, page=1}) =>{
-
   return query?
   get (`/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`)
   : null
+}
+
+export const getTrendingMovies = async (time_window)=>{
+  return get(`/trending/movie/${time_window}?api_key=${API_KEY}`)
 }
 
 
@@ -55,5 +58,6 @@ export default {
   getPerson,
   getMoviesByPerson,
   getRelatedMovies,
-  getMoviesBySearch
+  getMoviesBySearch,
+  getTrendingMovies
 }
