@@ -38,6 +38,13 @@ export const getRelatedMovies = async (genre, year) =>{
   return get(`/discover/movie?with_genres=${genre}&primary_release_year=${year}&api_key=${API_KEY}&include_adult=false`)
 }
 
+export const getMoviesBySearch = async ({query=null, page=1}) =>{
+
+  return query?
+  get (`/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`)
+  : null
+}
+
 
 // eslint-disable-next-line
 export default {
@@ -47,5 +54,6 @@ export default {
   getMovieDetails,
   getPerson,
   getMoviesByPerson,
-  getRelatedMovies
+  getRelatedMovies,
+  getMoviesBySearch
 }

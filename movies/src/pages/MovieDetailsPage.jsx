@@ -44,7 +44,7 @@ const MovieDetailsPage = () => {
           </Row>
         </Card>
         <PersonCardList cast={data.credits.cast} />
-        <RelatedMovies genre={data.genres[0].id} year={data.release_date}/>
+        <RelatedMovies genre={data.genres[0]?.id} year={data.release_date.slice(0,4)}/>
       </Container>
     )
   );

@@ -4,9 +4,9 @@ import { useHistory } from "react-router";
 
 import { useGenresContext } from "../contexts/GenresContext";
 
-const GenresButtons = () => {
+const GenresButtons = ({setPage}) => {
   const history = useHistory();
-  const { getPage, getGenreName, data, isLoading, isError, error } =
+  const { getGenreName, data, isLoading, isError, error } =
     useGenresContext();
 
   if (isLoading) return <Spinner animation="border" size="sm" />;
@@ -17,7 +17,7 @@ const GenresButtons = () => {
     );
 
   const handleOnClick = (id, name) => {
-    getPage(1);
+    setPage(1);
     getGenreName(name);
     history.replace(`/movies/genres/${id}`);
   };

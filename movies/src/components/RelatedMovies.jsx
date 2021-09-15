@@ -7,7 +7,7 @@ import { getRelatedMovies } from "../services/TMDBApi";
 
 const RelatedMovies = ({ genre, year }) => {
   const { movie_id } = useParams();
-  
+
   const { data, isLoading, isError, error } = useQuery(
     ["related-movie", genre, year],
     () => getRelatedMovies(genre, year)

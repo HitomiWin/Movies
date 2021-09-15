@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import GenresButtons from "../components/GenresButtons";
 import { useQuery } from "react-query";
@@ -11,7 +11,8 @@ import AllMoviesCard from "../components/AllMoviesCard";
 const AllMoviesByGenre = () => {
   const { genre_id } = useParams();
   const [params, setParams] = useUrlSearchParams({ page: 1 }, { page: Number });
-  const { page, genreName } = useGenresContext();
+  const [page, setPage] =useState(params.page)
+  const { genreName } = useGenresContext();
 
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
     ["movies-genre", genre_id, params.page],
@@ -37,11 +38,11 @@ const AllMoviesByGenre = () => {
       <h1>Genres</h1>
       <Row className="justify-content-center">
         <Col md="auto">
-          <GenresButtons />
+          <GenresButtons setPage={setPage}/>
         </Col>
         <Col md="auto">
           <h1>Genre: {genreName}</h1>
-          <AllMoviesCard  data={data} isPreviousData={isPreviousData} />
+          <AllMoviesCard  data={data} isPreviousData={isPreviousData} page={page} setPage={setPage} />
         </Col>
       </Row>
     </Container>
