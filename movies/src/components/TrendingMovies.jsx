@@ -25,13 +25,13 @@ const TrendingMovies = ({ title }) => {
   return (
     <div className="py-3">
       <Row>
-        <Col xs={10}>
+        <Col>
           <h1>
             Trending{" "}
             {timeWindow === "day" ? <span>Dayly</span> : <span>Weekly</span>}
           </h1>
         </Col>
-        <Col xs={2} className='text-end align-self-center'>
+        <Col className='text-end align-self-center'>
           <Button
             onClick={() => setTimeWindow("day")}
             disabled={timeWindow === "day"}

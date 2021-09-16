@@ -1,11 +1,19 @@
 import React from "react";
+
 import { useHistory } from "react-router-dom";
 import { Col, Card } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 
+
 const MovieCard = ({ movie }) => {
+ 
   const history = useHistory();
   const posterUrl = useGetPoster(movie.poster_path);
+  const handleOnClick = ()=>{
+
+      history.push(`/movie/${movie.id}`)
+  }
+
   return (
     <>
       {movie && (
@@ -13,9 +21,7 @@ const MovieCard = ({ movie }) => {
           xs={6}
           md={3}
           lg={2}
-          onClick={() => {
-            history.push(`/movie/${movie.id}`);
-          }}
+          onClick={handleOnClick}
           className={"my-3 movie-card-wrapper"}
         >
           <Card className="movie-card">

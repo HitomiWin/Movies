@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import dayjs from "dayjs";
 import PersonCardList from "../components/PersonCardList";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -6,16 +7,25 @@ import { getMovieDetails } from "../services/TMDBApi";
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 import RelatedMovies from "../components/RelatedMovies";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const MovieDetailsPage = () => {
   const { movie_id } = useParams();
+  // eslint-disable-next-line
+  const [savedMovies, setSavedMovies] = useLocalStorage("movies", "");
   const { data, isLoading, isError, error } = useQuery(
     ["movie", movie_id],
     () => getMovieDetails(movie_id)
   );
 
+  useEffect(() => {
+    setSavedMovies([...savedMovies, { id: movie_id, time: dayjs(new Date()) }]);
+    // eslint-disable-next-line
+  }, [movie_id]);
+
   const posterUrl = useGetPoster(data?.poster_path);
-  if (isLoading) return <Spinner  className="text-center" animation="border" size="sm" />;
+  if (isLoading)
+    return <Spinner className="text-center" animation="border" size="sm" />;
   if (isError)
     return (
       <p className="text-center">An error has ocdured: {error.message} </p>
@@ -27,8 +37,7 @@ const MovieDetailsPage = () => {
         <Card className={"mt-3 border-0"}>
           <Row>
             <Col sm={12} md={6} lg={3}>
-              <Card.Img src={posterUrl} className="image"
-               alt="No image" />
+              <Card.Img src={posterUrl} className="image" alt="No image" />
             </Col>
 
             <Col sm={12} md={6} lg={9}>
@@ -45,7 +54,10 @@ const MovieDetailsPage = () => {
           </Row>
         </Card>
         <PersonCardList cast={data.credits.cast} />
-        <RelatedMovies genre={data.genres[0]?.id} year={data.release_date.slice(0,4)}/>
+        <RelatedMovies
+          genre={data.genres[0]?.id}
+          year={data.release_date.slice(0, 4)}
+        />
       </Container>
     )
   );
