@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { useGenresContext } from "../../contexts/GenresContext";
-import { Search } from "react-bootstrap-icons";
+import { Search, PersonCircle } from "react-bootstrap-icons";
 
 const Navigation = () => {
   const { genreId } = useGenresContext();
@@ -23,16 +23,26 @@ const Navigation = () => {
               </NavLink>
             </Nav.Item>
             <Nav.Item>
-            <NavLink to={`/movies/genres/${genreId}`}  className="nav-link">
-              Genres
-            </NavLink>
+              <NavLink to={`/movies/genres/${genreId}`} className="nav-link">
+                Genres
+              </NavLink>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
         <Nav>
-          <NavLink to={"/movies/search"} className="search-icon">
-            <Search size={22} className="search-icon" />
-          </NavLink>
+          <Nav.Item>
+            <NavLink to={"/movies/search"} className="mx-2">
+              <Search size={22} className="search-icon" />
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink  to={"/movies/history"}>
+            <PersonCircle
+              size={22}
+              className="search-icon"
+            />
+            </NavLink>
+          </Nav.Item>
         </Nav>
       </Container>
     </Navbar>

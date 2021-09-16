@@ -11,9 +11,6 @@ const useLocalStorage = (key, defaultValue=null) => {
   })
 
   useEffect(() => {
-    if (typeof value === 'undefined') {
-			return;
-		}
     localStorage.setItem(key, JSON.stringify(value)) //set values..
   }, [key, value ])
 

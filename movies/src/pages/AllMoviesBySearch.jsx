@@ -53,7 +53,7 @@ const AllMoviesBySearch = () => {
       <p className="text-center">An error has ocdured: {error.message} </p>
     );
 
-  console.log(data);
+
   return (
     <Container className="mt-3">
       <Row className="justify-content-center">

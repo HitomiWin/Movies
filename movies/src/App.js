@@ -7,9 +7,8 @@ import MovieDetailsPage from './pages/MovieDetailsPage'
 import PersonPage from './pages/PersonPage'
 import NotFoundPage from './pages/NotFoundPage';
 import AllMoviesBySearch from './pages/AllMoviesBySearch';
-
+import HistoryPage from './pages/HistoryPage';
 function App() {
-
   return (
     <>
     <div id="App">
@@ -36,7 +35,11 @@ function App() {
       <Route  path="/movies/search">    
         <AllMoviesBySearch /> 
       </Route>
-      
+
+      <Route  path="/movies/history">    
+        <HistoryPage/> 
+      </Route>
+     
       <Route>
         <NotFoundPage />
       </Route>

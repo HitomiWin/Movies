@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 
-const MovieCard = ({ movie }) => {
+const HitoryCard = ({ movie }) => {
   const history = useHistory();
   const posterUrl = useGetPoster(movie.poster_path);
   const handleOnClick = ()=>{
@@ -25,4 +25,4 @@ const MovieCard = ({ movie }) => {
   );
 };
 
-export default MovieCard;
+export default HitoryCard;

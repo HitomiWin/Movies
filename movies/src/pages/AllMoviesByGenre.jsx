@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import GenresButtons from "../components/GenresButtons";
 import { useQuery } from "react-query";
-import { useParams ,useLocation} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMoviesByGenre } from "../services/TMDBApi";
 import { useUrlSearchParams } from "use-url-search-params";
 import { useGenresContext } from "../contexts/GenresContext";
@@ -21,8 +21,7 @@ const AllMoviesByGenre =() => {
       keepPreviousData: true,
     }
     );
-    // console.log(useHistory())
-    console.log(useLocation())
+
     
   useEffect(() => {
     setParams({ ...params, page });

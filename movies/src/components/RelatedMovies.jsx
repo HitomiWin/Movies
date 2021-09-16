@@ -29,7 +29,7 @@ const RelatedMovies = ({ genre, year }) => {
     return (
       <p className="text-center">An error has ocdured: {error.message} </p>
     );
- console.log(dataWithoutOwn)
+
   return(
     <>
     <h1>Recommendations</h1>

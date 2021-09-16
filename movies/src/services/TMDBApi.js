@@ -26,6 +26,10 @@ export const getMovieDetails = async (id) => {
   return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
 
+export const getMovie = async (id)=>{
+  return get(`/movie/${id}?api_key=${API_KEY}`)
+}
+
 export const getPerson = async (person_id) => {
   return get(`/person/${person_id}?api_key=${API_KEY}&language=en-US`)
 }
@@ -59,5 +63,6 @@ export default {
   getMoviesByPerson,
   getRelatedMovies,
   getMoviesBySearch,
-  getTrendingMovies
+  getTrendingMovies,
+  getMovie
 }

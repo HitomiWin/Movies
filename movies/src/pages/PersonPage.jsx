@@ -19,7 +19,7 @@ const PersonPage = () => {
       <p className="text-center">An error has ocdured: {error.message} </p>
     );
   if (isLoading) return <Spinner animation="border" size="sm" />;
-  console.log(data);
+
 
   return (
     data && (

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import dayjs from "dayjs";
 import PersonCardList from "../components/PersonCardList";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -12,14 +11,14 @@ import useLocalStorage from "../hooks/useLocalStorage";
 const MovieDetailsPage = () => {
   const { movie_id } = useParams();
   // eslint-disable-next-line
-  const [savedMovies, setSavedMovies] = useLocalStorage("movies", "");
+  const [savedMovies, setSavedMovies]= useLocalStorage("movies", []);
   const { data, isLoading, isError, error } = useQuery(
     ["movie", movie_id],
     () => getMovieDetails(movie_id)
   );
 
   useEffect(() => {
-    setSavedMovies([...savedMovies, { id: movie_id, time: dayjs(new Date()) }]);
+    setSavedMovies((prev) => [{ id: movie_id, time: new Date() }, ...prev]);
     // eslint-disable-next-line
   }, [movie_id]);
 
