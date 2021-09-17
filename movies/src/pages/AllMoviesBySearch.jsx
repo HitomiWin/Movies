@@ -91,6 +91,7 @@ const AllMoviesBySearch = () => {
               isPreviousData={isPreviousData}
               page={page}
               setPage={setPage}
+              paramsPage={searchParams.page}
             />
           ) : (
             <h4 className="mt-5 text-center">
