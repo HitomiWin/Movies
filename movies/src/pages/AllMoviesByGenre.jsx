@@ -10,8 +10,8 @@ import AllMoviesCardList from "../components/AllMoviesCardList";
 
 const AllMoviesByGenre =() => {
   const { genre_id } = useParams();
-  const [params, setParams] = useUrlSearchParams({ page: null }, { page: Number });
-  const [page, setPage] = useState(1);
+  const [params, setParams] = useUrlSearchParams({ page: 1 }, { page: Number });
+  const [page, setPage] = useState(params.page);
   const { genreName } = useGenresContext();
   
   const { data, isLoading, isError, error, isPreviousData } = useQuery(

@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import GenresContextProvider from './contexts/GenresContext';
-import ModalContextProvider from './contexts/ModalContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const queryClient = new QueryClient({
@@ -23,12 +22,10 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <ModalContextProvider>
           <GenresContextProvider>
             <App />
             <ReactQueryDevtools  initialIsOpen={false}/>
           </GenresContextProvider>
-        </ModalContextProvider>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,
