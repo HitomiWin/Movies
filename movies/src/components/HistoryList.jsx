@@ -2,7 +2,8 @@ import React from "react";
 import { Spinner } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { getMovie } from "../services/TMDBApi";
-import MovieCard from "./MovieCard";
+import { Col, Row } from "react-bootstrap";
+import HistoryCard from "./HistoryCard";
 
 const HistoryList = ({movie}) => {
   const { data, isLoading, isError, error } = useQuery(
@@ -15,13 +16,14 @@ const HistoryList = ({movie}) => {
     return (
       <p className="text-center">An error has ocdured: {error.message} </p>
     );
+    
   return (
     data && (
-      <>
-          <MovieCard movie={data} /> 
-
-
-      </>
+      <Row className="history-card-wrapper justify-content-center my-3">
+        <Col md={8} lg={5}>
+          <HistoryCard movie={data} day={movie.day} time={movie.time}/> 
+        </Col>
+      </Row>
     )
   );
 };

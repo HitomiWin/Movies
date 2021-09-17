@@ -31,3 +31,10 @@ body {
  .search-icon :hover{
   color: gray;
 }
+
+.time-stamp{
+  color:gray
+}
+.card-body{
+  height:100%
+}

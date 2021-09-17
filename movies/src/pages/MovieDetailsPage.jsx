@@ -11,14 +11,30 @@ import useLocalStorage from "../hooks/useLocalStorage";
 const MovieDetailsPage = () => {
   const { movie_id } = useParams();
   // eslint-disable-next-line
-  const [savedMovies, setSavedMovies]= useLocalStorage("movies", []);
+  const [savedMovies, setSavedMovies] = useLocalStorage("movies", []);
   const { data, isLoading, isError, error } = useQuery(
     ["movie", movie_id],
     () => getMovieDetails(movie_id)
   );
 
   useEffect(() => {
-    setSavedMovies((prev) => [{ id: movie_id, time: new Date() }, ...prev]);
+    if (savedMovies.length > 10) {
+      setSavedMovies((prev) => prev.slice(0, 10));
+    }
+    // eslint-disable-next-line
+  }, [savedMovies.length]);
+
+  useEffect(() => {
+    const now = new Date();
+    setSavedMovies((prev) => [
+      {
+        id: movie_id,
+        day: now.toLocaleDateString(),
+        time: now.toLocaleTimeString(),
+      },
+      ...prev,
+    ]);
+
     // eslint-disable-next-line
   }, [movie_id]);
 
