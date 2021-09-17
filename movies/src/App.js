@@ -1,5 +1,4 @@
 import {Route, Switch} from'react-router-dom'
-import GlobalLoadingSpinner from './components/GlobalLoadingSpinner';
 import AllMoviesByGenre from './pages/AllMoviesByGenre';
 import Home from "./pages/Home";
 import Navigation from "./pages/partials/Navigation";
@@ -8,13 +7,12 @@ import PersonPage from './pages/PersonPage'
 import NotFoundPage from './pages/NotFoundPage';
 import AllMoviesBySearch from './pages/AllMoviesBySearch';
 import HistoryPage from './pages/HistoryPage';
+
 function App() {
   return (
     <>
     <div id="App">
       <Navigation/>
-      <GlobalLoadingSpinner />
-
       <Switch>
       <Route exact path="/">
         <Home />       

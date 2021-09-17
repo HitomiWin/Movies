@@ -1,20 +1,23 @@
-import {useState, useEffect} from 'react'
+import {
+  useState,
+  useEffect
+} from 'react'
 
-const useLocalStorage = (key, defaultValue=null) => {
+const useLocalStorage = (key, defaultValue = null) => {
 
-  const [value, setValue] = useState(()=>{ // It used callback because something returns
+  const [value, setValue] = useState(() => { // It used callback because something returns
 
     const jsonValue = localStorage.getItem(key)
-    return jsonValue
-      ?JSON.parse(jsonValue)
-      :defaultValue
+    return jsonValue ?
+      JSON.parse(jsonValue) :
+      defaultValue
   })
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value)) //set values..
-  }, [key, value ])
+  }, [key, value])
 
-  return[
+  return [
     value,
     setValue
   ]

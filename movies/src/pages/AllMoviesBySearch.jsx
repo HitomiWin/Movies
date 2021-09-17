@@ -9,7 +9,6 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import { useQuery } from "react-query";
-
 import { getMoviesBySearch } from "../services/TMDBApi";
 import { useUrlSearchParams } from "use-url-search-params";
 import { Search } from "react-bootstrap-icons";
@@ -53,7 +52,6 @@ const AllMoviesBySearch = () => {
       <p className="text-center">An error has ocdured: {error.message} </p>
     );
 
-
   return (
     <Container className="mt-3">
       <Row className="justify-content-center">
@@ -95,7 +93,7 @@ const AllMoviesBySearch = () => {
             />
           ) : (
             <h4 className="mt-5 text-center">
-              We did not find anything for your search "{searchParams.query}"
+              No result match your search. Try again "{searchParams.query}"
             </h4>
           )}
         </Col>

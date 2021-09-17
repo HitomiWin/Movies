@@ -11,10 +11,6 @@ const TrendingMovies = ({ title }) => {
     () => getTrendingMovies(timeWindow)
   );
 
-  // const toggleButton=()=>{
-  //   setTimeWindow((prev)=> prev==='day'? 'week':'day')
-  // }
-
   if (isLoading) return <Spinner animation="border" size="sm" />;
 
   if (isError)
@@ -31,19 +27,19 @@ const TrendingMovies = ({ title }) => {
             {timeWindow === "day" ? <span>Dayly</span> : <span>Weekly</span>}
           </h1>
         </Col>
-        <Col className='text-end align-self-center'>
+        <Col className="text-end align-self-center">
           <Button
             onClick={() => setTimeWindow("day")}
             disabled={timeWindow === "day"}
-            variant='dark'
-            className='mx-1'
+            variant="dark"
+            className="mx-1"
           >
             Dayly
           </Button>
           <Button
             onClick={() => setTimeWindow("week")}
             disabled={timeWindow === "week"}
-            variant='dark'
+            variant="dark"
           >
             Weekly
           </Button>

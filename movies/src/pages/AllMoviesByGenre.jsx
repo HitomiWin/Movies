@@ -8,21 +8,19 @@ import { useUrlSearchParams } from "use-url-search-params";
 import { useGenresContext } from "../contexts/GenresContext";
 import AllMoviesCardList from "../components/AllMoviesCardList";
 
-const AllMoviesByGenre =() => {
+const AllMoviesByGenre = () => {
   const { genre_id } = useParams();
   const [params, setParams] = useUrlSearchParams({ page: 1 }, { page: Number });
   const [page, setPage] = useState(params.page);
   const { genreName } = useGenresContext();
-  
+
   const { data, isLoading, isError, error, isPreviousData } = useQuery(
     ["movies-genre", genre_id, params.page],
     () => getMoviesByGenre(genre_id, params.page),
     {
       keepPreviousData: true,
     }
-    );
-
-    
+  );
   useEffect(() => {
     setParams({ ...params, page });
     // eslint-disable-next-line
@@ -53,7 +51,6 @@ const AllMoviesByGenre =() => {
       </Row>
     </Container>
   );
-
 };
 
 export default AllMoviesByGenre;

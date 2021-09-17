@@ -20,13 +20,12 @@ const PersonPage = () => {
     );
   if (isLoading) return <Spinner animation="border" size="sm" />;
 
-
   return (
     data && (
       <Container>
         <Card className={"person-page mt-3 border-0"}>
           <Row>
-            <Col sm={12} md={6} lg={3} >
+            <Col sm={12} md={6} lg={3}>
               <Card.Img src={posterUrl} alt="No image" className="image" />
             </Col>
             <Col sm={12} md={6} lg={3}>

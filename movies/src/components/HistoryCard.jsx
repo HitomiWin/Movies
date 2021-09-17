@@ -25,11 +25,15 @@ const HitoryCard = ({ movie, day, time }) => {
             </Col>
             <Col>
               <Card.Body
-                className={"card-body d-flex flex-column justify-content-between "}
+                className={
+                  "card-body d-flex flex-column justify-content-between "
+                }
               >
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>Release date: {movie.release_date}</Card.Text>
-                <Card.Text className="time-stamp text-end">{day}/{time}</Card.Text>
+                <Card.Text className="time-stamp text-end">
+                  {day}/{time}
+                </Card.Text>
               </Card.Body>
             </Col>
           </Row>

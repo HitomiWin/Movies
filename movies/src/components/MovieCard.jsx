@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Card, Col } from "react-bootstrap";
 import useGetPoster from "../hooks/useGetPoster";
 
+// This card is used several times at some components
 const MovieCard = ({ movie }) => {
   const history = useHistory();
   const posterUrl = useGetPoster(movie.poster_path);

@@ -17,7 +17,10 @@ const Navigation = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Item>
-              <NavLink to={`/movies/genres/${genreId}?page=1`} className="nav-link">
+              <NavLink
+                to={`/movies/genres/${genreId}?page=1`}
+                className="nav-link"
+              >
                 Genres
               </NavLink>
             </Nav.Item>
@@ -27,7 +30,9 @@ const Navigation = () => {
               </NavLink>
             </Nav.Item>
             <Nav.Item>
-              <NavLink to={"/movies/history"} className="nav-link">History</NavLink>
+              <NavLink to={"/movies/history"} className="nav-link">
+                History
+              </NavLink>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

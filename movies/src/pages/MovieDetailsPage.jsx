@@ -8,13 +8,18 @@ import useGetPoster from "../hooks/useGetPoster";
 import RelatedMovies from "../components/RelatedMovies";
 import useLocalStorage from "../hooks/useLocalStorage";
 
+// The page to show movie derails
 const MovieDetailsPage = () => {
   const { movie_id } = useParams();
   // eslint-disable-next-line
-  const [savedMovies, setSavedMovies] = useLocalStorage("movies", []);
+  const [savedMovies, setSavedMovies] = useLocalStorage("movies", []); // called from custom hooks. key is movie and default value is empry array
   const { data, isLoading, isError, error } = useQuery(
     ["movie", movie_id],
-    () => getMovieDetails(movie_id)
+    () => getMovieDetails(movie_id),{
+        staleTime: 1000 * 60 * 30, // 30 mins // stop to refetch because if fetch new save agein to localstorage
+        cacheTime: 1000 * 60 * 60 * 1, // 1 hours // because ganre dosen't need to get often
+
+    }
   );
 
   useEffect(() => {
@@ -26,6 +31,7 @@ const MovieDetailsPage = () => {
 
   useEffect(() => {
     const now = new Date();
+    // add new object to localStorage newast comes first place
     setSavedMovies((prev) => [
       {
         id: movie_id,
@@ -39,6 +45,7 @@ const MovieDetailsPage = () => {
   }, [movie_id]);
 
   const posterUrl = useGetPoster(data?.poster_path);
+
   if (isLoading)
     return <Spinner className="text-center" animation="border" size="sm" />;
   if (isError)

@@ -21,12 +21,11 @@ const GenresContextProvider = ({ children }) => {
   const [genreName, setGenreName] = useState("");
 
   useEffect(() => {
-    if(data)
-    {
-      setGenreId(data.genres[0].id)
-      setGenreName(data.genres[0].name)
+    if (data) {
+      setGenreId(data.genres[0].id);
+      setGenreName(data.genres[0].name);
     }
-  }, [data])
+  }, [data]);
 
   const getGenreId = (id) => {
     setGenreId(id);
