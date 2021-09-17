@@ -10,6 +10,7 @@ body {
   right: 30px;
   top: 60px;
 }
+
 .movie-card-wrapper {
   height: 460px;
 }
@@ -22,6 +23,7 @@ body {
 }
 
 .image {
+  height:100%;
   text-align: center;
 }
 .search-icon{
