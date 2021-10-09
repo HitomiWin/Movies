@@ -15,7 +15,7 @@ const TrendingMovies = ({ title }) => {
 
   if (isError)
     return (
-      <p className="text-center">An error has ocdured: {error.message} </p>
+      <p className="text-center">An error has occured: {error.message} </p>
     );
 
   return (
@@ -24,7 +24,7 @@ const TrendingMovies = ({ title }) => {
         <Col>
           <h1>
             Trending{" "}
-            {timeWindow === "day" ? <span>Dayly</span> : <span>Weekly</span>}
+            {timeWindow === "day" ? <span>Daily</span> : <span>Weekly</span>}
           </h1>
         </Col>
         <Col className="text-end align-self-center">
@@ -34,7 +34,7 @@ const TrendingMovies = ({ title }) => {
             variant="dark"
             className="mx-1"
           >
-            Dayly
+            Daily
           </Button>
           <Button
             onClick={() => setTimeWindow("week")}
